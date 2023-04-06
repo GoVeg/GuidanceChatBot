@@ -1,4 +1,4 @@
-//Vegan advocate bot Guidance (System.out.print responses version) EMPTY TEMPLATE
+//EMPTY TEMPLATE Guidance bot (System.out.print responses version)
 //Numbers in brackets [] are substitution words
 //comma means or
 //space means and
