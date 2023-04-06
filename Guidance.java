@@ -2,7 +2,6 @@
 //Numbers in brackets [] are substitution words
 //comma means or
 //space means and
-//Carrot symbol separates equivalent words within slashes.
 //Plus means the following letter can either be there or not.
 //Greater than and less than signs can encompass multiple word options. If a comma immediately follows a greater than sign, the current word MUST be in the options.
 //Question mark means loop back through the phrase if the word after question mark is next.
@@ -1426,8 +1425,6 @@ public class Guidance {
                                                         	        }
                                                         	}
 							}
-							//guideword -= guidewordlength.get((brcount-1));
-                                                        //guidewordlength.set((brcount-1),0);
 						}
 					}
 
@@ -1448,7 +1445,6 @@ public class Guidance {
 								guidewordlength.set((brcount-1),0);
 							}
 						}
-						//startpos+=1;
 						oldbr = brcount;
 						while(startpos<s.length() && !(s.substring(startpos,startpos+1).equals(" ") && oldbr==0) && !(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount) && !(s.substring(startpos,startpos+1).equals(",") && oldbr<brcount))
 						{
@@ -1502,7 +1498,6 @@ public class Guidance {
                                                                         }
                                                                 }
 							}
-							//startpos+=1;
 						}
 					}
 					nd = 0;
