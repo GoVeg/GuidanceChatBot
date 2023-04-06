@@ -13,9 +13,7 @@ Standalone words are also required words.
 An example of a complete/valid list of trees for finders array: 
 <the> sun <is> <,bright<ly>> <,shin+e<,s,ing>> 3
 
-There are 3 required words in that line: sun and bright. Both bright and brightly are valid inputs because the "<ly>", being a single value not required tree,
-means that "ly" can either be at the end of "bright" or not. A "+" has this same principle applying to only the next very character. An input phrase of
-"sun bright shine" woulc not be accompanied with a reply because the "<,s,ing>" required word pair prevents "shine" as an option and leaves only
+There are 3 required words in that line: sun and bright. Both bright and brightly are valid inputs because the "<ly>", being a single value not required tree, means that "ly" can either be at the end of "bright" or not. A "+" has this same principle applying to only the next very character. An input phrase of "sun bright shine" would not be accompanied with a reply because the "<,s,ing>" required word pair prevents "shine" as an option and leaves only
 shins, shines, shining, and shineing as possibilities. Shin and shines would be options if the word pair was not required such as "<s,ing>".
 
 More symbols and their purpose is outlined at the top of the code.
