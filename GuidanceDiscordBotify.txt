@@ -1,0 +1,55 @@
+package com.robecs.app;//TODO change to your package name and make sure your discord bot has the GatewayIntent enabled
+
+import java.util.ArrayList;
+
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+
+import javax.security.auth.login.LoginException;
+
+public class Guidance extends ListenerAdapter {
+
+        public static int options = -1;
+
+        public static void main (String[] args) throws LoginException {
+
+                JDA jda = JDABuilder.createDefault("YOUR_BOT_TOKEN").enableIntents(GatewayIntent.MESSAGE_CONTENT).build();
+                jda.addEventListener(new Guidance());
+        }
+        @Override
+        public void onMessageReceived(MessageReceivedEvent event)
+        {
+                if (event.getAuthor().isBot())
+                {
+                        return;
+                }
+                String message = event.getMessage().getContentRaw();
+
+                message = message.toLowerCase();
+
+                String reply = " ";
+                if(message.length()<999)
+                {
+                        try
+                        {
+                                reply = wordar(message);
+                        }
+                        catch(Exception e)
+                        {
+                                reply = "e";
+                                System.out.println(e);
+                        }
+                }
+                else
+                {
+                        reply = " ";
+                }
+
+                if (!reply.equals(" ") && !reply.equals("e"))
+                {
+                        event.getChannel().sendMessage(reply).queue();
+                }
+        }
