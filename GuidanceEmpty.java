@@ -22,7 +22,7 @@ The code can of course be modified to take all input from a file, but this is ho
 */
 
 //FINDERS ARRAY STRING RULES:
-//Numbers in brackets [] are substitution words
+//Numbers in brackets [] are replaced with substitution strings at the number index (-1) of the abrev string array in the combine(string) method
 //comma means or
 //space means and
 //Plus means the following char can either be there (part of the input word) or not.
@@ -383,29 +383,8 @@ public class GuidanceEmpty {
 		int tostr = 0; //which abrev string
 		String tonum = "";
 
-		//similes
-		String[] abrev = {"<,cause+s,contribute+s to,increas<e,s,ing> <in> <the> <amount of>,make+s <more> <of>,create+s,lead+s to,invoke+s>",//1
-				"<,greater,<much,wa+a+a+ay,insanely> <more,greater>> <of> <an> <increase> <in> <the> <amount,quantity> <of>",//2
-				"<,mak+e<s,ing>,produc+e<s,ing>,creat+e<s,ing>,caus+e<s,ing>,generat+e<s,ing>,do<es,ing>>",//3
-				"<,cars,boats,transport<ation>,planes,<burning> coal <power plants>,power plants,<burning> fossil fuels> <exhaust,waste>",//4
-				"<,<industrial<ized>,corporate,farm<ing>,funding,buy<ing>,subsidiz<e,ing>> animal+s <product<ion,s>,agriculture,farm<ing,s>>,<animal> <factory+s,industrial<ized>,corporate> farm<ing,s>> <practice+s> <instance+s>",//5
-				"<,do<es>n+'t,do<es> not>",//6
-				"<,pollut<ion,ants,e>,co2,greenhouse gas<ses>> <emissions>",//7
-				"<on,in,to,for,into,within> <the,our,this> <,earth+'+s,planet+s,atmosphere,environment,air,soil>",//8
-				"<,doesn+'t,does not,barely,hardly>",//9
-				"<,can+'t,cannot,<are,is> unable <to>>",//10
-				"<,significant<ly>,observably,concerning<ly>,relative<ly>,lot,much,<in> a concerning amount <of>>",//11
-				"",//12
-				"<negative,harmful> <,impact+s,problem+s,issue+s,effect+s,harm+s,consequences,destroy+s,destruction,hurt+s,damage+s>",//13
-				"<created,made,caused,generated,comes,came> <<,out,because> of,as a result of,by,from>",//14
-				"<,health<y,iful>,necessary,needed,vital,important,essential,good,beneficial,great,amazing,incredible,nutriti<on,ous>>",//15
-				"<everyone+'+s,everybody,all,most,you,me,us> <of> <human+'+s,people+'+s,our> <to> <health,well being,vitality,longevity,surviv<e,al>> <stages of human life>",//16
-				"<,balance+d,little,proportion<al>,moderat<e,ion>,small,the right,little,some>",//17
-				"<,should,need+s,must,ha<ve,s>,ought,are supposed> <to>",//18
-				"<,health,well+-+ being,vitality,longevity,stages of human life,surviv<e,al>>",//19
-				"<,human+'+s,people+'+s,mankind+s> <,health,well being,vitality,longevity>",//20
-				"<for,to> <the,our> <,<planet+'+s,earth+'+s> <people,human+s,life,ecosystem+s,environment,atmosphere,air,soil,oceans,lakes,rivers,climate>> <of,on,in> <our> <planet> <earth>"//21
-		};
+		//similes (in finders, [0] cooresponds to the first element of the abrev string array
+		String[] abrev = {""};
 
 		for(int a = 0; a < compress.length(); a++)
 		{
