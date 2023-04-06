@@ -1,9 +1,31 @@
 //EMPTY TEMPLATE Guidance bot (System.out.print responses version)
+
+/*
+Populate your own responses/input that the bot can reply to. All you do is:
+
+1. If you intend to reply to a question Populate the "n1" array with the the number associated with the desired question words:
+(key)
+1: who=0 what=1 where=2 why=3 how=4 do&does&can=5
+2: is=0 does=1 come=2 could=3 can=4 would=5 should=6 do&did=7 may=8 must=9 are=10 to=11 you&people&we&u=12 ought=13
+The first number in the array AND every number that follows after the number -1 correspond to the key in 1. The numbers after are options for the second word which are in 2 of the key. 
+For example, {3,0,-1,4,0,1} would remove why, why is, how, how is, and how does from the beginning of the input phrase.
+
+2. Add this array (in this case n1) to the double array "inq". The order does matter.
+
+3.Add the list of word options/trees as a string in the finders array.
+
+4. Add each reply as a string in the following array of string (in this case a1).
+
+5.Finally, add that string array to the double string array "rep".
+
+The code can of course be modified to take all input from a file, but this is how to create misconception list of trees + the respective responses with just this code alone.
+*/
+
+//FINDERS ARRAY STRING RULES:
 //Numbers in brackets [] are substitution words
 //comma means or
 //space means and
-//Carrot symbol separates equivalent words within slashes.
-//Plus means the following letter can either be there or not.
+//Plus means the following char can either be there (part of the input word) or not.
 //Greater than and less than signs can encompass multiple word options. If a comma immediately follows a greater than sign, the current word MUST be in the options.
 //Question mark means loop back through the phrase if the word after question mark is next.
 //Exclamation point means that whichever word in the following tree matches the current word results in a reply from the response array of that words index.
