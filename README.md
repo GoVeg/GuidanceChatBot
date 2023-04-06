@@ -26,5 +26,5 @@ Email: robecslab@gmail.com
 Snapchat: o3epo
 Discord: Dinkles#3425
 
-Guidance.java currently runs on this discord server (and a few others): https://discord.gg/EMsakPt6 with the name Guidance#6620, and it can be invited to
+Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D with the name Guidance#6620, and it can be invited to
 other servers as well.
