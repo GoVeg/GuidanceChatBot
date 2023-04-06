@@ -25,3 +25,5 @@ Let me know about the remarkable applications or other project ideas worth makin
 Email: robecslab@gmail.com
 Snapchat: o3epo
 Discord: Dinkles#3425
+
+Guidance.java currently runs on this server (and a few others): https://discord.gg/EMsakPt6
