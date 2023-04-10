@@ -18,7 +18,7 @@ An example of a complete/valid list of trees for finders array:
 There are 3 required words in that line: sun, bright, and either shins, shines, shining, or shineing. Both bright and brightly are valid inputs because the "ly", being a single value not required tree, means that "ly" can either be at the end of "bright" or not. A "+" has this same principle applying to only the very next character. An input phrase of "sun bright shine" would not be accompanied with a reply because the "<,s,ing>" required word pair prevents "shine" as an option and leaves only
 shins, shines, shining, and shineing as possibilities. Shin and shines would be options if the word pair was not required such as "<s,ing>".
 
-More symbols and their purpose is outlined at the top of the code.
+More symbols and their purpose is outlined at the top of EmptyGuidance.java.
 
 Contact me about improvements, issues, or any other relevant suggestions or comments. This code is free to use and modify however you wish (please just
 keep responses scientific, educational, kind, and just overall rational).
@@ -28,15 +28,15 @@ Email: robecslab@gmail.com
 Snapchat: o3epo  
 Discord: Dinkles#3425
 
-Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D with the name Guidance#6620, and it can be invited to
+Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D as Guidance#6620, and it can be invited to
 other servers as well. 
 
-To run this java bot as a discord bot, maven must be installed. Follow the steps in https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html to create a valid directory structure, replacing the auto generated .java files with yours. Then in the code, replace everything up to the wordar(String) method with the contents of GuidanceDiscordBotify.txt and replace the pom.xml with the one I provided. In that same directory as the pom.xml, first run
+To run this java bot as a discord bot, maven must be installed. Follow the steps in https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html to create a valid directory structure, replacing the auto generated .java files with yours. Then in the code, replace everything up to the wordar(String) method with the contents of GuidanceDiscordBotify.txt and replace the pom.xml with the one provided here. In that same directory as the pom.xml, first run
 
 mvn package
 
 then
 
-java -cp target/my-app-1.0-SNAPSHOT.jar com.robecs.app.Guidance
+java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.Guidance
 
-Replace "com.robecs.app.Guidance" with your correct directory path as well as in the pom.xml, and enable gateway intent for the discord bot.
+Replace "com.mycompany.app.Guidance" with your desired directory path as well as in the pom.xml, and enable gateway intent for the discord bot.
