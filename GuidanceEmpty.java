@@ -1,31 +1,9 @@
-//EMPTY TEMPLATE Guidance bot (System.out.print responses version)
-
-/*
-Populate your own responses/input that the bot can reply to. All you do is:
-
-1. If you intend to reply to a question Populate the "n1" array with the the number associated with the desired question words:
-(key)
-1: who=0 what=1 where=2 why=3 how=4 do&does&can=5
-2: is=0 does=1 come=2 could=3 can=4 would=5 should=6 do&did=7 may=8 must=9 are=10 to=11 you&people&we&u=12 ought=13
-The first number in the array AND every number that follows after the number -1 correspond to the key in 1. The numbers after are options for the second word which are in 2 of the key. 
-For example, {3,0,-1,4,0,1} would remove why, why is, how, how is, and how does from the beginning of the input phrase.
-
-2. Add this array (in this case n1) to the double array "inq". The order does matter.
-
-3.Add the list of word options/trees as a string in the finders array.
-
-4. Add each reply as a string in the following array of string (in this case a1).
-
-5.Finally, add that string array to the double string array "rep".
-
-The code can of course be modified to take all input from a file, but this is how to create misconception list of trees + the respective responses with just this code alone.
-*/
-
-//FINDERS ARRAY STRING RULES:
-//Numbers in brackets [] are replaced with substitution strings at the number index (-1) of the abrev string array in the combine(string) method
+//Vegan advocate bot Guidance (System.out.print responses version) EMPTY TEMPLATE
+//Numbers in brackets [] are substitution words
 //comma means or
 //space means and
-//Plus means the following char can either be there (part of the input word) or not.
+//Carrot symbol separates equivalent words within slashes.
+//Plus means the following letter can either be there or not.
 //Greater than and less than signs can encompass multiple word options. If a comma immediately follows a greater than sign, the current word MUST be in the options.
 //Question mark means loop back through the phrase if the word after question mark is next.
 //Exclamation point means that whichever word in the following tree matches the current word results in a reply from the response array of that words index.
@@ -49,7 +27,7 @@ public class GuidanceEmpty {
 		phrase = phrase.toLowerCase();
 
 		String reply = " ";
-		if(phrase.length()<555)
+		if(phrase.length()<999)
 		{
                 	try
                 	{
@@ -383,7 +361,7 @@ public class GuidanceEmpty {
 		int tostr = 0; //which abrev string
 		String tonum = "";
 
-		//similes (in finders, [0] cooresponds to the first element of the abrev string array
+		//numbers in brackets corresponds with this arrays index
 		String[] abrev = {""};
 
 		for(int a = 0; a < compress.length(); a++)
@@ -397,7 +375,6 @@ public class GuidanceEmpty {
 					tonum = "" + tonum + compress.substring(a,a+1);
 					a+=1;
 				}
-				//a+=1;
 				tostr = Integer.parseInt(tonum);
 
 				bigger = bigger + abrev[tostr-1];
@@ -464,7 +441,7 @@ public class GuidanceEmpty {
                                                 }
 					}
 					startpos+=1;
-					if(s.substring(startpos,startpos+1).equals(","))
+					if(s.charAt(startpos)==',')
 					{
 						bools.add(true);
 						startpos+=1;
@@ -492,13 +469,13 @@ public class GuidanceEmpty {
 							if(brcount==0)
 							{
 								startpos+=1;
-								while(startpos<s.length() && !(s.substring(startpos,startpos+1).equals(" ") && oldbr==brcount))
+								while(startpos<s.length() && !(s.charAt(startpos)==' ' && oldbr==brcount))
 								{
-									if(s.substring(startpos,startpos+1).equals("<"))
+									if(s.charAt(startpos)=='<')
 									{
 										oldbr+=1;
 									}
-									else if(s.substring(startpos,startpos+1).equals(">"))
+									else if(s.charAt(startpos)=='>')
 									{
 										oldbr-=1;
 									}
@@ -507,14 +484,14 @@ public class GuidanceEmpty {
 							}
 							else
 							{
-								while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount) && !(s.substring(startpos,startpos+1).equals(",") && oldbr==brcount) && !(s.substring(startpos,startpos+1).equals(" ") && oldbr==0))
+								while(!(s.charAt(startpos)=='>' && oldbr<brcount) && !(s.charAt(startpos)==',' && oldbr==brcount) && !(s.charAt(startpos)==' ' && oldbr==0))
 								{
 									startpos+=1;
-									if(s.substring(startpos,startpos+1).equals("<"))
+									if(s.charAt(startpos)=='<')
 									{
 										oldbr+=1;
 									}
-									else if(s.substring(startpos,startpos+1).equals(">"))
+									else if(s.charAt(startpos)=='>')
 									{
 										oldbr-=1;
 										if(oldbr<brcount && oldbr>-1 && bools.get(oldbr))
@@ -540,7 +517,7 @@ public class GuidanceEmpty {
 									}
 								}
 							}//end else
-							if(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount || s.substring(startpos,startpos+1).equals(","))
+							if(s.charAt(startpos)=='>' && oldbr<brcount || s.charAt(startpos)==',')
 							{
 								bools.remove(brcount);
 								guidewordlength.remove(brcount);
@@ -585,14 +562,14 @@ public class GuidanceEmpty {
 					if(guideword==wordlen || guidewordlength.get(brcount-1)>0)
 					{
 						oldbr = brcount;
-						while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount))
+						while(!(s.charAt(startpos)=='>' && oldbr<brcount))
 						{
 							startpos+=1;
-							if(s.substring(startpos,startpos+1).equals("<"))
+							if(s.charAt(startpos)=='<')
 							{
 								oldbr+=1;
 							}
-							else if(s.substring(startpos,startpos+1).equals(">"))
+							else if(s.charAt(startpos)=='>')
 							{
 								oldbr-=1;
 							}
@@ -614,7 +591,7 @@ public class GuidanceEmpty {
 							guidewordlength.set((brcount-1),(guidewordlength.get(brcount-1) + nd));
 						}
 					}
-					if(guideword<wordlen && s.substring(startpos,startpos+1).equals(wordmatch.substring(guideword,guideword+1)))
+					if(guideword<wordlen && s.charAt(startpos)==(wordmatch.charAt(guideword)))
 					{
 						guideword+=1;
 						if(brcount>0)
@@ -623,7 +600,7 @@ public class GuidanceEmpty {
 						}
 						startpos+=1;
 					}
-					else if(s.substring(startpos,startpos+1).equals(" "))
+					else if(s.charAt(startpos)==' ')
 					{
 						if(guideword==wordlen)
 						{
@@ -681,7 +658,7 @@ public class GuidanceEmpty {
 						startpos+=1;
 						boolean b = false;
 						guideword = 0;
-						if(s.substring(startpos,startpos+1).equals("<"))
+						if(s.charAt(startpos)=='<')
 						{
 							if(!s.substring(startpos+1,startpos+2).equals(","))
 							{
@@ -693,14 +670,14 @@ public class GuidanceEmpty {
 							}
 							startpos+=1;
 						}
-						while(!(s.substring(startpos,startpos+1).equals(" ") || startpos==s.length()))
+						while(!(s.charAt(startpos)==' ') || startpos==s.length())
 						{
-							if(nd<wordlen && s.substring(startpos,startpos+1).equals(wordmatch.substring(nd,nd+1)))
+							if(nd<wordlen && s.charAt(startpos)==(wordmatch.charAt(nd)))
 							{
 								nd+=1;
 								startpos+=1;
 							}
-							else if(s.substring(startpos,startpos+1).equals(",") || s.substring(startpos,startpos+1).equals(">"))
+							else if(s.charAt(startpos)==',' || s.charAt(startpos)=='>')
 							{
 								if(nd==wordmatch.length())
 								{
@@ -713,7 +690,7 @@ public class GuidanceEmpty {
 							else
 							{
 								startpos+=1;
-								while(!((s.substring(startpos,startpos+1).equals(",") && guideword==0) || s.substring(startpos,startpos+1).equals(">") || s.substring(startpos,startpos+1).equals(" ")))
+								while(!((s.charAt(startpos)==',' && guideword==0) || s.charAt(startpos)=='>' || s.charAt(startpos)==' '))
 								{
 									startpos+=1;
 								}
@@ -743,14 +720,14 @@ public class GuidanceEmpty {
 						startpos+=2;
 						brcount+=1;
 						oldbr = brcount;
-						while(!(oldbr<brcount && s.substring(startpos,startpos+1).equals(" ")))
+						while(!(oldbr<brcount && s.charAt(startpos)==' '))
 						{
 							startpos+=1;
-							if(s.substring(startpos,startpos+1).equals("<"))
+							if(s.charAt(startpos)=='<')
 							{
 								oldbr+=1;
 							}
-							else if(s.substring(startpos,startpos+1).equals(">"))
+							else if(s.charAt(startpos)=='>')
 							{
 								oldbr-=1;
 								if(oldbr<brcount)
@@ -816,14 +793,14 @@ public class GuidanceEmpty {
 					{
 						guidewordlength.set((brcount-1),(guidewordlength.get(brcount-1) + nd));
 						oldbr = brcount;
-						while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount) && !(s.substring(startpos,startpos+1).equals(",") && oldbr==brcount) && !(s.substring(startpos,startpos+1).equals(" ") && (oldbr<brcount || oldbr==0)))
+						while(!(s.charAt(startpos)=='>' && oldbr<brcount) && !(s.charAt(startpos)==',' && oldbr==brcount) && !(s.charAt(startpos)==' ' && (oldbr<brcount || oldbr==0)))
 						{
 							startpos+=1;
-							if(s.substring(startpos,startpos+1).equals("<"))
+							if(s.charAt(startpos)=='<')
 							{
 								oldbr+=1;
 							}
-							else if(s.substring(startpos,startpos+1).equals(">"))
+							else if(s.charAt(startpos)=='>')
 							{
 								oldbr-=1;
 								if(oldbr<brcount && oldbr>0 && bools.get(oldbr))
@@ -861,7 +838,7 @@ public class GuidanceEmpty {
 					startpos+=2;
 					brcount+=1;
 
-					if(s.substring(startpos,startpos+1).equals(","))
+					if(s.charAt(startpos)==',')
 					{
 						bools.add(true);
 						startpos+=1;
@@ -873,13 +850,13 @@ public class GuidanceEmpty {
 					guidewordlength.add(0);
 					while(brcount>0)
 					{
-						if(guideword<wordlen && s.substring(startpos,startpos+1).equals(wordmatch.substring(guideword,guideword+1)))
+						if(guideword<wordlen && s.charAt(startpos)==(wordmatch.charAt(guideword)))
 						{
 							nd+=1;
 							guideword+=1;
 							startpos+=1;
 						}
-						else if(s.substring(startpos,startpos+1).equals("<"))
+						else if(s.charAt(startpos)=='<')
 						{
 							if(s.substring(startpos+1,startpos+2).equals(","))
 							{
@@ -898,7 +875,7 @@ public class GuidanceEmpty {
 							startpos+=1;
 							brcount+=1;
 						}
-						else if(s.substring(startpos,startpos+1).equals(">"))
+						else if(s.charAt(startpos)=='>')
 						{
 							brcount-=1;
 							if(nd>0)
@@ -950,14 +927,14 @@ public class GuidanceEmpty {
 									if(guidewordlength.get(brcount)==0)
 									{
 										oldbr = brcount;
-										while(!((s.substring(startpos,startpos+1).equals(",") && oldbr==brcount) || (s.substring(startpos,startpos+1).equals(">") && oldbr<brcount)))
+										while(!((s.charAt(startpos)==',' && oldbr==brcount) || (s.charAt(startpos)=='>' && oldbr<brcount)))
 										{
 											startpos+=1;
-											if(s.substring(startpos,startpos+1).equals("<"))
+											if(s.charAt(startpos)=='<')
 											{
 												oldbr+=1;
 											}
-											else if(s.substring(startpos,startpos+1).equals(">"))
+											else if(s.charAt(startpos)=='>')
 											{
 												oldbr-=1;
 											}
@@ -993,7 +970,7 @@ public class GuidanceEmpty {
 
 							nd = 0;
 						}
-						else if(s.substring(startpos,startpos+1).equals(","))
+						else if(s.charAt(startpos)==',')
 						{
 							if(nd>0)
 							{
@@ -1007,14 +984,14 @@ public class GuidanceEmpty {
 									if(guideword==wordlen)
 									{
 										oldbr = brcount;
-                                                                         	while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount))
+                                                                         	while(!(s.charAt(startpos)=='>' && oldbr<brcount))
                                                                          	{
                                                                          	       startpos+=1;
-                                                                         	       if(s.substring(startpos,startpos+1).equals("<"))
+                                                                         	       if(s.charAt(startpos)=='<')
                                                                          	       {
                                                                          	               oldbr+=1;
                                                                          	       }
-                                                                         	       else if(s.substring(startpos,startpos+1).equals(">"))
+                                                                         	       else if(s.charAt(startpos)=='>')
                                                                          	       {
                                                                          	               oldbr-=1;
                                                                          	       }
@@ -1047,14 +1024,14 @@ public class GuidanceEmpty {
 									if(guidewordlength.get(0)>0 && a>0 && word[(a-1)].length()<=guidewordlength.get(0))
 									{
 										oldbr = brcount;
-                                                                                while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount))
+                                                                                while(!(s.charAt(startpos)=='>' && oldbr<brcount))
                                                                                 {
                                                                                        startpos+=1;
-                                                                                       if(s.substring(startpos,startpos+1).equals("<"))
+                                                                                       if(s.charAt(startpos)=='<')
                                                                                        {
                                                                                                oldbr+=1;
                                                                                        }
-                                                                                       else if(s.substring(startpos,startpos+1).equals(">"))
+                                                                                       else if(s.charAt(startpos)=='>')
                                                                                        {
                                                                                                oldbr-=1;
                                                                                        }
@@ -1079,14 +1056,14 @@ public class GuidanceEmpty {
 								else
 								{
 									oldbr = brcount;
-									while(!(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount))
+									while(!(s.charAt(startpos)=='>' && oldbr<brcount))
                                                                         {
                                                                                 startpos+=1;
-                                                                                if(s.substring(startpos,startpos+1).equals("<"))
+                                                                                if(s.charAt(startpos)=='<')
                                                                                 {
                                                                                         oldbr+=1;
                                                                                 }
-                                                                                else if(s.substring(startpos,startpos+1).equals(">"))
+                                                                                else if(s.charAt(startpos)=='>')
                                                                                 {
                                                                                         oldbr-=1;
                                                                                 }
@@ -1133,14 +1110,14 @@ public class GuidanceEmpty {
 						else
 						{
 							oldbr = brcount;
-                                                        while(!((s.substring(startpos,startpos+1).equals(",") && oldbr==brcount) || (s.substring(startpos,startpos+1).equals(">") && oldbr<brcount)))
+                                                        while(!((s.charAt(startpos)==',' && oldbr==brcount) || (s.charAt(startpos)=='>' && oldbr<brcount)))
                                                         {
                                                                 startpos+=1;
-                                                                if(s.substring(startpos,startpos+1).equals("<"))
+                                                                if(s.charAt(startpos)=='<')
                                                                 {
                                                                         oldbr+=1;
                                                                 }
-                                                                else if(s.substring(startpos,startpos+1).equals(">"))
+                                                                else if(s.charAt(startpos)=='>')
                                                                 {
                                                                         oldbr-=1;
                                                                 }
@@ -1183,14 +1160,14 @@ public class GuidanceEmpty {
 							}
 						}
 						oldbr = brcount;
-						while(startpos<s.length() && !(s.substring(startpos,startpos+1).equals(" ") && oldbr==0) && !(s.substring(startpos,startpos+1).equals(">") && oldbr<brcount) && !(s.substring(startpos,startpos+1).equals(",") && oldbr<brcount))
+						while(startpos<s.length() && !(s.charAt(startpos)==' ' && oldbr==0) && !(s.charAt(startpos)=='>' && oldbr<brcount) && !(s.charAt(startpos)==',' && oldbr<brcount))
 						{
 							startpos+=1;
-							if(s.substring(startpos,startpos+1).equals("<"))
+							if(s.charAt(startpos)=='<')
 							{
 								oldbr+=1;
 							}
-							else if(s.substring(startpos,startpos+1).equals(">"))
+							else if(s.charAt(startpos)=='>')
 							{
 								oldbr-=1;
 								if(oldbr<brcount && oldbr>0 && bools.get(oldbr))
@@ -1214,7 +1191,7 @@ public class GuidanceEmpty {
 									brcount-=1;
 								}
 							}
-							else if(s.substring(startpos,startpos+1).equals(","))
+							else if(s.charAt(startpos)==',')
 							{
 								if(oldbr==brcount)
                                                                 {
