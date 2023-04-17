@@ -1,5 +1,33 @@
-//Vegan advocate bot Guidance (System.out.print responses version) EMPTY TEMPLATE
-//Numbers in brackets [] are substitution words
+//EMPTY TEMPLATE chatbot (System.out.print responses version)
+
+/*
+STEP BY STEP INSTRUCTIONS on how to populate your own responses/input that the bot can reply to. All you do is:
+1. If you intend to reply to a question Populate the "n1" array with the the number associated with the desired question words:
+  (key repeated below based on ifs)
+  1: who=0 what=1 where=2 why=3 how=4 do&does&can=5
+  2: is=0 does=1 come=2 could=3 can=4 would=5 should=6 do&did=7 may=8 must=9 are=10 to=11 you&people&we&u=12 ought=13
+The first number in the array AND every number that follows after the number -1 correspond to the key in 1. The numbers after are options for the second word which are in 2 of the key. 
+For example, {3,0,-1,4,0,1} would remove why, why is, how, how is, and how does from the beginning of the input phrase. Guidance.java shows more examples.
+
+2. Add this array (in this case n1) to the double array "inq". The order does matter.
+
+3. Add the list of word options/trees as a string in the finders array. Guidance.java shows many examples and below are some more rules and possibilities.
+
+	example 1: <the> sun <is> <,bright<ly>> <,shin+e<s,ing>> 3
+	example 2: animals <can,are,have> <,feel<ings>,sentien<t,se>> 2
+
+    Because "sun" is standing alone and "bright" and "shin+e" has a comma after the bracket (<,) this makes those words if found added and a reply returned
+    when that number matches the number at the end of the line.
+
+4. Add each reply as a string in the following array of string (in this case a1).
+
+5. Finally, add that string array to the double string array "rep". n1 array starts on line 262
+
+The code can of course be modified to take all input from a file, but this is how to create misconception list of trees + the respective responses with just this code alone.
+*/
+
+//FINDERS ARRAY STRING RULES:
+//Numbers in brackets [] are replaced with substitution strings at the number index (-1) of the abrev string array in the combine(string) method
 //comma means or
 //space means and
 //Carrot symbol separates equivalent words within slashes.
