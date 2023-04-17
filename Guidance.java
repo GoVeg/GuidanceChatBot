@@ -1,6 +1,6 @@
 //Vegan advocate bot Guidance System.out.print responses
 //Numbers are statements, dashes are response options.
-//Numbers in brackets are substitution words
+//Numbers in brackets is abrev array
 //comma means or
 //space means and
 //Carrot symbol separates equivalent words within slashes.
@@ -9,9 +9,6 @@
 //The reply still occurs as long as the following text after the words are only emojis, spaces, pictures or any combination of those.
 //Question mark means loop back through the phrase if the word after question mark is next.
 //Number in parentheses denotes how many words are required to match in order to output reply
-//Money invest in an industry whose actions create/earn , money , earning , materials , for that industry.
-
-//TODO what code should ignore: symbols except "'" and commas (if all words matched up to a comma, reply shall occur), "almost", spacing
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -31,7 +28,7 @@ public class Guidance {
 		phrase = phrase.toLowerCase();
 
 		String reply = " ";
-		if(phrase.length()<555)
+		if(phrase.length()<999)
 		{
                 	try
                 	{
