@@ -1,6 +1,6 @@
 //Vegan advocate bot Guidance System.out.print responses
 //Numbers are statements, dashes are response options.
-//Numbers in brackets is abrev array
+//Numbers in brackets are substitution words
 //comma means or
 //space means and
 //Carrot symbol separates equivalent words within slashes.
@@ -111,7 +111,7 @@ public class Guidance {
 	
 		ArrayList<Integer> inqwords = new ArrayList<Integer>(0);
 
-		if(foreword[0].equals("who"))
+		if(foreword[0].equals("who"))//Catching some first words beforehand
 		{
 			inqwords.add(0);
 		}
@@ -232,7 +232,7 @@ public class Guidance {
                         }
 		}
 
-		//What questions strings can take
+		//What questions (first words) strings can take
 		int[] n1 = {3,0,-1,4,0,2};//meat is good
 
 		int[] n2 = {3,7,-1,4,2};//humans need some meat
@@ -316,9 +316,13 @@ public class Guidance {
 		int[] n41 = {1,0,3,4,5,8,9,10,-1,3,0,3,4,5,6,8,9,10,13,-1,4,0,1,2,3,4,5,7,8,10,-1,5};//What is bad about meat
 
 		int[] n42 = {1,1,0,3,4,5,8,9,10,-1,3,0,3,4,5,6,8,9,10,13,-1,4,0,1,2,3,4,5,7,8,10,-1,5};//why is meat bad
+		
+		int[] n43 = {};//Animals are good for the environment,planet,atmosphere
+		
+		int[] n44 = {1,3,4,5,7,8,10,-1,3,0,1,3,4,5,6,7,8,10,-1,4,0,1,2,3,4,5,6,7,8,10,-1,5};//Why,how are animals bad,destructive for,to the environment?
 		//1: who=0 what=1 where=2 why=3 how=4 do&does&can=5
 		//2: is=0 does=1 come=2 could=3 can=4 would=5 should=6 do&did=7 may=8 must=9 are=10 to=11 you&people&we&u=12 ought=13
-		int[][] inq = {n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,n32,n33,n34,n35,n36,n37,n38,n39,n40,n41,n42};
+		int[][] inq = {n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,n32,n33,n34,n35,n36,n37,n38,n39,n40,n41,n42,n43,n44};
 
 		int boing = inqwords.size();
 		String[] word = new String[(foreword.length-boing)];
@@ -369,7 +373,9 @@ public class Guidance {
 			"<the> <,<fake,beyond> <meat> alternative+s <to> <animal,meat>,<,vegan,plant <based>,healthy> <,food,produc<e,ts>,alternatives,diet+s>> <produc<e,ts>> <,are,could,is,has><n+'t> <not> <be<en>> <too,very,really,more> <widely,commonly> <,cheap<er>,cost<ly>,expensive,available,grown,produced> <more> <where,in> <most,certain,one,some> <part+s> <of> <i,we,us,people> <live> 3",//39
 			"<well> <,i+'+m,we,people,humans> <are,am,will,would,can> <,always,ok<ay>,fine,get used,keep,continue,<do,have,are><n+'t>,not> <go<ing,nna>> <to,with> <,<hurt,kill,enslav+e,tortur+e,punish,farm,caus+e,creat+e,mak+e><ing>> <wild> <,pollution,animal+s,insect+s,cow+s,pig+s,chicken+s> <to,in,on> <the,this> <planet,environment,atmosphere> 4",//40
 			"<the,all,so<rt+s>,much> <of,it> <a,th<at,ose,em>> <,bad,unhealthy,problem<atic>+s,issue+s,wrong,pollution,destructive,harmful> <thing,choice,decision> <is> <it,happen<s,ing>> <are,<,d,t>o,with,if,about,that,when> <i,me,us,people,human+s> <who,that> <are> <<eat,consum+e,intak+e,ingest,buy><ing>> <the> !<,meat,<<factory> farm<ed,ing>+s> animal+s <agriculture> <industry>,<beef,steak>,pork,chicken,fish,heme iron,<ldl> <c> cholesterol,saturated fat+s,<be<com+e><ing>> <a> carnis+t<s,m>,<be<com+e><ing>> <a> specie<ist,sism>,<,milk,dairy>,cheese> <product<ion,s>> <is,are> <<actua,rea<listica>><lly>> <go<ing,nna>> <<t,d>o> <caus<e,ing>+s,contribut<e,ing>+s,mak<e,ing>+s,responsible,produc<e,ing>> <to,for> 2",//41
-			"<about> <it> <that> <me,us,people,human+s> <<eat,consum+e,intak+e,ingest,buy><ing>> <all,so<me,rt>+s> <of> <a,th<e,at,ose,em>> !<,meat,<<factory> farm<ed,ing>+s> animal+s <agriculture> <industry>,<beef,steak>,pork,chicken,fish,heme iron,<ldl> <c> cholesterol,saturated fat+s,<be<com+e><ing>> <a> carnis<t,m>,<be<com+e><ing>> <a> specie<ist,sism>,<,dairy,milk>,cheese> <have,contain+s> <that> <make+s> <it> <go<ing,nna>> <produc+e+s,c<an,ould,<aus,reat,ontribut><e+s,ing>>,make+s> <to> <be,it> <a> <,bad,unhealthy,problem<atic>+s,issue+s,wrong,pollut<ing,ion,e>+s,destructive,harm<ful,ing,s>> <action,choice,decision> <to,on,for> <the> <planet,environment,world,earth,ecosystem+s> 2"//42
+			"<about> <it> <that> <me,us,people,human+s> <<eat,consum+e,intak+e,ingest,buy><ing>> <all,so<me,rt>+s> <of> <a,th<e,at,ose,em>> !<,meat,<<factory> farm<ed,ing>+s> animal+s <agriculture> <industry>,<beef,steak>,pork,chicken,fish,heme iron,<ldl> <c> cholesterol,saturated fat+s,<be<com+e><ing>> <a> carnis<t,m>,<be<com+e><ing>> <a> specie<ist,sism>,<,dairy,milk>,cheese> <have,contain+s> <that> <make+s> <it> <go<ing,nna>> <produc+e+s,c<an,ould,<aus,reat,ontribut><e+s,ing>>,make+s> <to> <be,it> <a> <,bad,unhealthy,problem<atic>+s,issue+s,wrong,pollut<ing,ion,e>+s,destructive,harm<ful,ing,s>> <action,choice,decision> <to,on,for> <the> <planet,environment,world,earth,ecosystem+s> 2",//42
+		"<th<e,ose>,some,many> <,animal+s,insect+s> <farm+s> <are,is,were> <being> <,good,great,beneficial,essential,vital,important,necessary,enrich<ing>,improve,sequester,help<ing,ful>> <for,to,in,with> <the> <well> <being> <of,in,for> <the> <,environment,atmosphere,ocean+s,planet+s,rivers,lakes,ecosystem+s> <well> <being> 3",//43
+		"<ma<de,kes>> <th<e,ose>,some,many> <,animal+s,insect+s> <farm+s> <are,is,were> <be<ing>> <,bad,harm<ful>,destr<oy,uctive>,damag<e,ing>,detrimental,ruin<s,ing>,pollute> <for,to,in,on> <the> <,atmosphere,environment+s,planet+s,ocean,human+s,mankind,earth> 3"//44
 		};
 
 		String[] a1 = { "Please substantiate that claim.",
@@ -517,8 +523,16 @@ public class Guidance {
 		"A sentient living organism with the capacity to feel pleasure and pain deserve moral value and shouldn't be treated as if they had no real feelings at all. When less animals are bred and forced into existence unnecessarily, there is still moral imparative to consider the suffering of those that exist regardless, there would just be less total suffering by the numbers. https://sentientmedia.org/u-s-farmed-animals-live-on-factory-farms/ https://iopscience.iop.org/article/10.1088/1748-9326/8/3/034015?source=post_elevate_sequence_page",
 		"Baby cows are forcibly taken from their mothers for the milk. https://academic.oup.com/ajcn/article/89/5/1638S/4596954 https://ourworldindata.org/environmental-impacts-of-food?insight=food-emissions-local#key-insights-on-the-environmental-impacts-of-food",
 		"Study Reveals that Cheese Triggers the Same Part of the Brain as Many Drugs https://www.mountsinai.org/about/newsroom/2015/study-reveals-that-cheese-triggers-the-same-part-of-the-brain-as-many-drugs#:~:text=News-,%22Study%20Reveals%20that%20Cheese%20Triggers%20the%20Same%20Part,the%20Brain%20as%20Many%20Drugs%22&text=New%20research%20argues%20that%20cheese,trigger%20the%20brain%27s%20opioid%20receptors https://www.hsph.harvard.edu/nutritionsource/2016/10/25/dairy-fat-cardiovascular-disease-risk/"};
+		String[] a43 = {
+		"The world currently raises a billion cows, and more than a hundred billion other animals as livestock. We are growing so many animals to the point that it’s unsustainable for our population due to much of the plant calories being burned by the animals and used by the animals themselves.",
+		"On this Earth we know 8 billion people there are also over a billion cows, and 100 billion sheep and goats. Agriculture animals pollute more than all of transportation combined."};
+		String[] a44 = {
+		"Cow burps contain nitrous oxide which has 300 times the greenhouse effect that carbon dioxide has. In addition to methane and the carbon costs of transport, the waste of the animals also proves difficult to manage and ruin surrounding ecosystems and rivers.",
+		"When cows burp they release nitrous oxide which is 300 times more of a greenhouse gas then carbon dioxide. It's important to consider the environmental costs our food purchases can have and making the decision to go vegan supremely helps.",
+		"People who work in slaughter houses are more likely on average to commit worse crimes. The animals themselves of course poop a lot and although their physical waste can be used a lot of waste escapes in the air in the form of methane and nitrous oxide which has a huge negative impact on global warming."
+		};
 		//replies
-		String[][] rep = {a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42};
+		String[][] rep = {a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44};
 
 		int req = 0;
 		int j = 0;
