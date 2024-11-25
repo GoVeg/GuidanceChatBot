@@ -1,9 +1,7 @@
 # GuidanceChatBot
-The purpose of this chat bot is to make the manual adding of responses and the reading of an input sentence easy and straighforward. 
-Simply add a "row of trees" to the array named "finders", which is what the code reads and compares with an input sentence. Complete instructions are at
-the top of GuidanceEmpty.java.
+This bot reads if trees to determine what predetermined reply to give. Complete instructions are at the top of GuidanceEmpty.java.
 
-Example of a tree:
+Example of an if tree:
 <good,great,healthy>
 
 A tree is essentially just a list of words. A row of trees is just lists separated by a space.
@@ -20,13 +18,10 @@ shins, shines, shining, and shineing as possibilities. Shin and shines would be 
 
 More symbols and their purpose is outlined at the top of EmptyGuidance.java.
 
-Contact me about improvements, issues, or any other relevant suggestions or comments. This code is free to use and modify however you wish (please just
-keep responses scientific, educational, kind, and just overall rational).
-Let me know about the remarkable applications or other project ideas worth making with it!
+Let me know about overall improvements, issues, or any other relevant suggestions. This code is free to use and modify however you wish
 
-Email: robecslab@gmail.com  
-Snapchat: o3epo  
-Discord: Dinkles#3425
+Email: robecslab@gmail.com    
+Discord: goodunderstander
 
 Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D as Guidance#6620, and it can be invited to
 other servers as well. 
