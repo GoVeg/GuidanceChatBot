@@ -1,19 +1,18 @@
 # GuidanceChatBot
-This bot reads if trees to determine what predetermined reply to give. Complete instructions are at the top of GuidanceEmpty.java.
+This bot reads special 'group sentences' to determine what predetermined reply to give. Complete instructions are at the top of GuidanceEmpty.java.
 
-Example of an if tree:
-<good,great,healthy>
+Example of a group sentence:
+<the,a> <vegan> <diets> <are,is> <good,great,healthy>
 
-A tree is essentially just a list of words. A row of trees is just lists separated by a space.
+A group is essentially just a list of words, so a group sentence would be a row of groups or word lists separated by a space.
 
-if < has a comma after it, then a word from that list must necessarily be in the input making it a "required word". At the end of each finders array
-string is the number of required words needed in order for the code to output a reply. Only the "<," at the first level is counted as a required word.
+if < (or a parenthesis like the C version) has a comma after it, then a word from that list or word group must necessarily be in the input phrase in order for the bot to choose a reply making it a "required word". At the end of each 'finders' array string is the number of required words needed in order for the code to output a reply. Only the "<," at the first level (there can be groups inside groups) is counted as a required word group.
 Standalone words are also required words.
 
-An example of a complete/valid list of trees for finders array: 
-<the> sun <is> <,bright<ly>> <,shin+e<,s,ing>> 3
+Another example of a complete/valid list of trees for finders array: 
+<the> sun <is> <,shin+e<,s,ing>> <,bright<er>> 3
 
-There are 3 required words in that line: sun, bright, and either shins, shines, shining, or shineing. Both bright and brightly are valid inputs because the "ly", being a single value not required tree, means that "ly" can either be at the end of "bright" or not. A "+" has this same principle applying to only the very next character. An input phrase of "sun bright shine" would not be accompanied with a reply because the "<,s,ing>" required word pair prevents "shine" as an option and leaves only
+There are 3 required words in that line: sun, bright, and either shins, shines, shining, or shineing. Both bright and brighter are valid inputs because the "er" is surrounded with <> but without the special signifying comma making it optional. A "+" has this same principle applying to only the very next character. An input phrase of "sun shine bright" would not be accompanied with a reply because the "<,s,ing>" required word pair prevents "shine" or "shin" as options, leaving only
 shins, shines, shining, and shineing as possibilities. Shin and shines would be options if the word pair was not required such as "<s,ing>".
 
 More symbols and their purpose is outlined at the top of EmptyGuidance.java.
