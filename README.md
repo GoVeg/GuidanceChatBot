@@ -18,13 +18,13 @@ shins, shines, shining, and shineing as possibilities. Shin and shines would be 
 
 More symbols and their purpose is outlined at the top of EmptyGuidance.java.
 
-Let me know about overall improvements, issues, or any other relevant suggestions. This code is free to use and modify however you wish
+Let me know about overall improvements, issues, or any other relevant suggestions. This code is free to use and modify however you wish. I hope it convinces you to be vegan, as it's plain to see how the logic can now be and is hard coded.
 
 Email: robecslab@gmail.com    
 Discord: goodunderstander
 
 Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D as Guidance#6620, and it can be invited to
-other servers as well. 
+other servers as well. Future goals include having Guidance as a Reddit chatbot as it should be millions of times more effective for the animals.
 
 To run this java bot as a discord bot, maven must be installed. Follow the steps in https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html to create a valid directory structure, replacing the auto generated .java files with yours. Then in the code, replace everything up to the wordar(String) method with the contents of GuidanceDiscordBotify.txt and replace the pom.xml with the one provided here. In that same directory as the pom.xml, first run
 
