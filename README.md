@@ -20,7 +20,7 @@ More symbols and their purpose is outlined at the top of EmptyGuidance.java.
 Let me know about overall improvements, issues, or any other relevant suggestions. This code is free to use and modify however you wish. I hope it convinces you to be vegan, as it's plain to see how the logic can now be and is hard coded.
 
 Email: robecslab@gmail.com    
-Discord: goodunderstander
+Discord: moralclarity
 
 Guidance.java currently runs on this discord server (and a few others): https://discord.gg/UcnKbXgk3D as Guidance#6620, and it can be invited to
 other servers as well. Future goals include having Guidance as a Reddit chatbot as it should be millions of times more effective for the animals.
